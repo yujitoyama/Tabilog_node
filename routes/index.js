@@ -4,8 +4,14 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', {
+	var msg = ''
+	if(req.session.login != true){
+		msg = 'ログインしてください';
+	}else{
+		msg = 'ID' + req.session.name + 'でログインしています。';
+	}
+	res.render('index', {
 	  title: 'Express',
-	  msg: 'こんにちは' + 'さん' 
+	  msg: msg
   });
 };

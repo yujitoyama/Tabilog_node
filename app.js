@@ -8,7 +8,8 @@ var express = require('express')
   , index_post = require('./routes/index_post')  
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mysql = require('mysql');
 
 var app = express();
 
@@ -20,6 +21,8 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.cookieParser('secret','mycom_sercred_key'));
+app.use(express.session({key:'session_id'}));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 

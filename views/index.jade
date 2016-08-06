@@ -2,8 +2,20 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}#{title}#{title}
+  p Welcome to #{title}
   p= msg
   form(method='post',action='/')
-   input(type='text',name='text1')
-   input(type='submit',value='送信')
+   table
+    tr
+     td
+      p ID:
+     td
+      input(type='text',name='name')
+    tr
+     td
+      p Password:
+     td
+      input(type='password',name='pass')
+    tr
+     td
+      input(type='submit',value='確定')
