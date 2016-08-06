@@ -6,6 +6,6 @@
 exports.index = function(req, res){
   res.render('index', {
 	  title: 'Express',
-	  msg: 'こんにちは' + 'さん' 
+	  msg: 'こんにちは' + req.body.text1 + 'さん' 
   });
 };
