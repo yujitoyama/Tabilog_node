@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p#msg #{msg}
+  
+  form(method='post',action='/update')
+   table(border='1')
+     tr
+       td id
+       th
+         input(type='text',name='id',value'#{data.id}')
+     tr
+       td nama
+       th
+         input(type='text',name='name',value'#{data.name}')
+     tr
+       td mail
+       th
+         input(type='text',name='mail',value'#{data.mail}')
+     tr
+       td tel
+       th
+         input(type='text',name='tel',value'#{data.tel}')
+     tr
+       td ボタン
+       th
+         input(type='submit',value='確定')

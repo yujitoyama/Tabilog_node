@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p#msg #{msg}
+  
+  form(method='post',action='/create')
+   table(border='1')
+     tr
+       td nama
+       th
+         input(type='text',name='name')
+     tr
+       td mail
+       th
+         input(type='text',name='mail')
+     tr
+       td tel
+       th
+         input(type='text',name='tel')
+     tr
+       td ボタン
+       th
+         input(type='submit',value='確定')

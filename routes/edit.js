@@ -5,7 +5,7 @@
 
 mysql = require('mysql');
 
-exports.index = function(req, res) {
+exports.edit = function(req, res) {
 //var conf = "tcp://root:oracle@localhost:3306/test";
 	var connection = mysql.createConnection({
 		host: 'localhost',
@@ -19,7 +19,7 @@ exports.index = function(req, res) {
 			console.log(err);
 			res.redirect('/');
 		} else 
-            res.render('index', {
+            res.render('edit', {
                 title : 'Express',
                 msg : 'MyDataの一覧リスト2',
                 datas : rows

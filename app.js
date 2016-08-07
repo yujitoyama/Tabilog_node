@@ -6,6 +6,10 @@
 var express = require('express')
   , routes = require('./routes')
   , index_post = require('./routes/index_post')  
+  , add = require('./routes/add')
+  , create = require('./routes/create')
+  , update = require('./routes/update')
+  , edit = require('./routes/edit')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
@@ -33,6 +37,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/', index_post.index);
+app.get('/add', add.add);
+app.post('/create', create.create);
+app.get('/edit/:id', edit.edit);
+app.post('/update', update.update);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

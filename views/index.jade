@@ -3,19 +3,18 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p= msg
-  form(method='post',action='/')
-   table
+  p#msg #{msg}
+  table(border='1')
     tr
-     td
-      p ID:
-     td
-      input(type='text',name='name')
-    tr
-     td
-      p Password:
-     td
-      input(type='password',name='pass')
-    tr
-     td
-      input(type='submit',value='確定')
+      th id
+      th name
+      th mail
+      th tel
+    - each data in datas
+      tr
+        td
+         a(href='/edit/#{data.id}') #{data.id}
+        td= data.id
+        td= data.name
+        td= data.mail
+        td= data.tel
