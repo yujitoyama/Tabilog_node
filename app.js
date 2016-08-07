@@ -14,7 +14,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , mysql = require('mysql');
-
+	
 var app = express();
 
 // all environments
@@ -44,5 +44,5 @@ app.post('/update', update.update);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on portt ' + app.get('port'));
+  console.log('Express server listening on port fi ' + app.get('port'));
 });
