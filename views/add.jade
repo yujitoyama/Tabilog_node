@@ -22,4 +22,37 @@ block content
      tr
        td ボタン
        th
-         input(type='submit',value='確定')
+         input(type='submit',value='確定(mysql)')
+
+  br
+
+  h1 MongoDB
+  form(method='post',action='/create_mdb')
+   table(border='1')
+     tr
+       td nama
+       th
+         input(type='text',name='name')
+     tr
+       td mail
+       th
+         input(type='text',name='mail')
+     tr
+       td tel
+       th
+         input(type='text',name='memo')
+     tr
+       td ボタン
+       th
+         input(type='submit',value='確定(MongoDB)')
+//       
+  table(border='1')
+    tr
+       th Name
+       th Mail
+       th memo
+    - each data in datas
+       tr
+         td= data.name
+         td= data.mail
+         td= data.memo

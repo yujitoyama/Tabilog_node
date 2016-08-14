@@ -5,8 +5,31 @@
 
 mysql = require('mysql');
 
+//MongoDB事前準備
+var mongoose = require('mongoose');
+/*
+var Schema = mongoose.Schema;
+
+//今回利用するスキーマを定義
+var mydataSchema = new Schema({
+	'name' : String,
+	'mail' : String,
+	'memo' : String
+});
+
+//ベースとなるスキーマからmydataモデルを作成
+//var MyData = mongoose.model('mydata', mydataSchema);
+*/
+//データベース接続
+var db = mongoose.connect('mongodb://localhost/mydb');
+
 exports.index = function(req, res) {
+	
+	
+	
+	
 //var conf = "tcp://root:oracle@localhost:3306/test";
+
 	var connection = mysql.createConnection({
 		host: 'localhost',
 		database: 'test',
@@ -33,4 +56,16 @@ exports.index = function(req, res) {
                 datas : rows
         });
 	});
-}
+
+
+db.mydatas.find(function(err,docs){
+	if(err){
+		console.log(err);
+	}
+	res.render('add',{
+		title: 'Express&MongoDB',
+		datas:docs
+	});
+});
+
+};
